@@ -8,6 +8,8 @@ define(function () {
     // expect(foo).to.have.properties
 
     // TODO: each assertion in a separate file?
+    
+    // TODO: package it for npm
 
 
     var chai, utils;
