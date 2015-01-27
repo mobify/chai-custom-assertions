@@ -1,6 +1,6 @@
 define(function (require) {
 
-    // TODO: 
+    // TODO: implement better 'expect' style
     // expect(foo).to.have.elements.present
     // expect(foo).to.not.have.elements.present
     // expect(foo).to.have.elements.with.length
