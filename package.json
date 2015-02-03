@@ -10,7 +10,6 @@
     "type": "git",
     "url": "https://github.com/mobify/chai-custom-assertions.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mobify/chai-custom-assertions/issues"
