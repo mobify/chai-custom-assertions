@@ -16,9 +16,9 @@ chai.use(customAssertions);
 
 ## New Assertion Methods
 
-The plugin extends Chai by adding the following methods. Feel free to use either the 'assert' or 'expect' styles.
+The plugin extends Chai by adding the following methods. Feel free to use either the `assert` or `expect` styles.
 
-(Note: since Chai's API supports only the 'expect' style, we implemented these methods for the 'expect' style first and then the 'assert' style as a wrapper)
+(Note: since Chai's API supports only the `expect` style, we implemented these methods for the `expect` style first and then the `assert` style as a wrapper)
 
 ### Elements
 
@@ -36,7 +36,7 @@ assert.elementsPresent($links, 3)
 expect($links).to.have.elementsPresent(3)
 
 // The negation
-asset.elementsNotPresent($emailForm)
+assert.elementsNotPresent($emailForm)
 expect($emailForm).to.not.have.elementsPresent()
 ```
 
@@ -75,4 +75,4 @@ expect(lists).to.not.be.empty
 
 ## Future Improvements
 
-In the future, if we decide to switch to writing our tests in the 'expect' style, I feel it's better if we implement better 'expect' methods than what we have now. I wrote some todo in the code to show a sample of what that might look like.
+In the future, if we decide to switch to writing our tests in the `expect` style, I feel it's better if we implement better `expect` methods than what we have now. I wrote some todo in the code to show a sample of what that might look like.
