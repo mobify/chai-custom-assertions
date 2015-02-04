@@ -1,1 +1,68 @@
-# Custom Assertions for Chai
+# Custom Assertions For Chai
+
+For our integration testing, we have made our own Chai's custom assertions. This is where we define, collect, and present them in a plugin form.
+
+
+## How To Use the Plugin
+
+To use the plugin is simply calling Chai's `use()` function:
+
+    var chai = require('node_modules/chai/chai');
+    var customAssertions = require('node_modules/mobify-chai-assertions/assertions');
+    chai.use(customAssertions);
+
+
+## New Assertion Methods
+
+The plugin extends Chai by adding the following methods. Feel free to use either the 'assert' or 'expect' styles.
+
+(Note: since Chai's API supports only the 'expect' style, we implemented these methods for the 'expect' style first and then the 'assert' style as a wrapper)
+
+### Elements
+
+Works with Zepto/jQuery elements.
+
+`elementsPresent`, `elementsNotPresent`:
+
+    // Asserts that there exists such element on page
+    assert.elementsPresent($emailForm)
+    expect($emailForm).to.have.elementsPresent()
+
+    // Asserts that there are 4 or more such elements
+    assert.elementsPresent($links, 3)
+    expect($links).to.have.elementsPresent(3)
+
+    // The negation
+    asset.elementsNotPresent($emailForm)
+    expect($emailForm).to.not.have.elementsPresent()
+
+`elementsEqual`, `elementsNotEqual`:
+
+    // Asserts that there are exactly 3 of such elements
+    assert.elementsEqual($images, 3)
+    expect($images).to.have.elementsEqual(3)
+
+    // The negation
+    assert.elementsNotEqual($images, 3)
+    expect($images).to.not.have.elementsEqual(3)
+
+### Properties
+
+Works with javascript objects.
+
+    // Asserts that this object has the keys 'apple' and 'google'
+    assert.properties(apps, 'apple', 'google')
+    expect(apps).to.have.properties('apple', 'google')
+
+### Has Items
+
+Works with a collection of things.
+
+    // Asserts that this collection (e.g. an array) has at least 1 item in it
+    assert.hasItems(lists)
+    expect(lists).to.not.be.empty
+
+
+## Future Improvements
+
+In the future, if we decide to switch to writing our tests in the 'expect' style, I feel it's better if we implement better 'expect' methods than what we have now. I wrote some todo in the code to show a sample of what that might look like.
