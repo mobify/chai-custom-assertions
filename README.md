@@ -7,9 +7,11 @@ For our integration testing, we have made our own Chai's custom assertions. This
 
 To use the plugin is simply calling Chai's `use()` function:
 
-    var chai = require('node_modules/chai/chai');
-    var customAssertions = require('node_modules/mobify-chai-assertions/assertions');
-    chai.use(customAssertions);
+```javascript
+var chai = require('node_modules/chai/chai');
+var customAssertions = require('node_modules/mobify-chai-assertions/assertions');
+chai.use(customAssertions);
+```
 
 
 ## New Assertion Methods
@@ -24,43 +26,51 @@ Works with Zepto/jQuery elements.
 
 `elementsPresent`, `elementsNotPresent`:
 
-    // Asserts that there exists such element on page
-    assert.elementsPresent($emailForm)
-    expect($emailForm).to.have.elementsPresent()
+```javascript
+// Asserts that there exists such element on page
+assert.elementsPresent($emailForm)
+expect($emailForm).to.have.elementsPresent()
 
-    // Asserts that there are 4 or more such elements
-    assert.elementsPresent($links, 3)
-    expect($links).to.have.elementsPresent(3)
+// Asserts that there are 4 or more such elements
+assert.elementsPresent($links, 3)
+expect($links).to.have.elementsPresent(3)
 
-    // The negation
-    asset.elementsNotPresent($emailForm)
-    expect($emailForm).to.not.have.elementsPresent()
+// The negation
+asset.elementsNotPresent($emailForm)
+expect($emailForm).to.not.have.elementsPresent()
+```
 
 `elementsEqual`, `elementsNotEqual`:
 
-    // Asserts that there are exactly 3 of such elements
-    assert.elementsEqual($images, 3)
-    expect($images).to.have.elementsEqual(3)
+```javascript
+// Asserts that there are exactly 3 of such elements
+assert.elementsEqual($images, 3)
+expect($images).to.have.elementsEqual(3)
 
-    // The negation
-    assert.elementsNotEqual($images, 3)
-    expect($images).to.not.have.elementsEqual(3)
+// The negation
+assert.elementsNotEqual($images, 3)
+expect($images).to.not.have.elementsEqual(3)
+```
 
 ### Properties
 
 Works with javascript objects.
 
-    // Asserts that this object has the keys 'apple' and 'google'
-    assert.properties(apps, 'apple', 'google')
-    expect(apps).to.have.properties('apple', 'google')
+```javascript
+// Asserts that this object has the keys 'apple' and 'google'
+assert.properties(apps, 'apple', 'google')
+expect(apps).to.have.properties('apple', 'google')
+```
 
 ### Has Items
 
 Works with a collection of things.
 
-    // Asserts that this collection (e.g. an array) has at least 1 item in it
-    assert.hasItems(lists)
-    expect(lists).to.not.be.empty
+```javascript
+// Asserts that this collection (e.g. an array) has at least 1 item in it
+assert.hasItems(lists)
+expect(lists).to.not.be.empty
+```
 
 
 ## Future Improvements
