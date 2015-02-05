@@ -1,14 +1,18 @@
 define(function (require) {
 
     return function (chai, utils) {
-        global.assert       = chai.assert;
-        global.Assertion    = chai.Assertion;
-        global.expect       = chai.expect;
+        var assert       = chai.assert;
+        var Assertion    = chai.Assertion;
 
-        // Add assertions
-        require('./lib/elements')();
-        require('./lib/properties')();
-        require('./lib/has-items')();
+        var paths = [
+            './lib/elements',
+            './lib/properties',
+            './lib/has-items'
+        ];
+
+        paths.forEach(function addOurAssertions (path) {
+            require(path)(assert, Assertion);
+        });
     };
 
     // TODO: implement better 'expect' style
