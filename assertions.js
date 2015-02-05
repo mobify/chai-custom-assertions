@@ -4,15 +4,10 @@ define(function (require) {
         var assert       = chai.assert;
         var Assertion    = chai.Assertion;
 
-        var paths = [
-            './lib/elements',
-            './lib/properties',
-            './lib/has-items'
-        ];
-
-        paths.forEach(function addOurAssertions (path) {
-            require(path)(assert, Assertion);
-        });
+        // Add our assertions
+        require('./lib/elements')(assert, Assertion);
+        require('./lib/properties')(assert, Assertion);
+        require('./lib/has-items')(assert, Assertion);
     };
 
     // TODO: implement better 'expect' style
