@@ -1,24 +1,19 @@
 define(function (require) {
 
+    return function (chai, utils) {
+        var assert       = chai.assert;
+        var Assertion    = chai.Assertion;
+
+        // Add our assertions
+        require('./lib/elements')(assert, Assertion);
+        require('./lib/properties')(assert, Assertion);
+        require('./lib/has-items')(assert, Assertion);
+    };
+
     // TODO: implement better 'expect' style
     // expect(foo).to.have.elements.present
     // expect(foo).to.not.have.elements.present
     // expect(foo).to.have.elements.with.length
     // expect(foo).to.have.elements.not.with.length
     // expect(foo).to.have.properties
-
-    // TODO: package it for npm
-
-
-    return function (chai, utils) {
-        global.assert       = chai.assert;
-        global.Assertion    = chai.Assertion;
-        global.expect       = chai.expect;
-
-        // Add assertions
-        require('./lib/elements')();
-        require('./lib/properties')();
-        require('./lib/has-items')();
-    };
-
 });
