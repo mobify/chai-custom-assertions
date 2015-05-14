@@ -2,6 +2,8 @@
 
 For our integration testing, we have made our own Chai's custom assertions. This is where we define, collect, and present them in a plugin form.
 
+https://www.npmjs.com/package/mobify-chai-assertions
+
 
 ## How To Use the Plugin
 
