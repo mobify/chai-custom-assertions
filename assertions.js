@@ -5,7 +5,7 @@ define(function (require) {
         var Assertion    = chai.Assertion;
 
         // Add our assertions
-        require('./lib/elements')(assert, Assertion);
+        require('./lib/elements')(assert, Assertion, utils);
         require('./lib/properties')(assert, Assertion);
         require('./lib/has-items')(assert, Assertion);
     };
