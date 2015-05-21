@@ -36,19 +36,34 @@ expect($paymentOptions).to.be.elements;
 `present`
 
 ```javascript
-// Asserts that the length is greater than 0.
+// Asserts that the length is at least (>=) than num.
+// Default is 1. 
 // Can be used with all types of expressions.
 expect($paymentOptions).to.be.present;
 
 var items = [1, 2, 3];
 expect(items).to.be.present;
+expect(items).to.be.present(3);
 
 // Can be used in a chain:
-// Zepto/jQuery object has length greater than 0
+// Zepto/jQuery object has length at least 1
 expect($paymentOptions).to.have.elements.present;
 
 // Can be negated
+// Length is 0
 expect($paymentOptions).to.have.elements.not.present;
+```
+
+`count`
+
+```javascript
+// Asserts that it has a specified length
+var items = [1, 2, 3];
+expect(items).to.have.count(3);
+
+// Asserts that a jQuery/Zepto object has a specified length
+var $images = $('img');
+expect($images).to.have.elements.count(24);
 ```
 
 **Deprecated** `elementsPresent`, `elementsNotPresent`:
@@ -89,9 +104,18 @@ assert.properties(apps, 'apple', 'google')
 expect(apps).to.have.properties('apple', 'google')
 ```
 
-### Has Items
+### Items
 
 Works with a collection of things.
+
+`items`
+
+```javascript
+// Asserts that this collection (e.g. an array) has at least 1 item in it
+expect(lists).to.have.items;
+```
+
+**Deprecated** `hasItems`
 
 ```javascript
 // Asserts that this collection (e.g. an array) has at least 1 item in it
