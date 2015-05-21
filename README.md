@@ -24,9 +24,34 @@ The plugin extends Chai by adding the following methods. Feel free to use either
 
 ### Elements
 
-Works with Zepto/jQuery elements.
+`elements`
 
-`elementsPresent`, `elementsNotPresent`:
+```javascript
+// Asserts that it is a Zepto/jQuery element.
+expect($paymentOptions).to.be.elements;
+
+//Can be chained with .present and .count (see below)
+```
+
+`present`
+
+```javascript
+// Asserts that the length is greater than 0.
+// Can be used with all types of expressions.
+expect($paymentOptions).to.be.present;
+
+var items = [1, 2, 3];
+expect(items).to.be.present;
+
+// Can be used in a chain:
+// Zepto/jQuery object has length greater than 0
+expect($paymentOptions).to.have.elements.present;
+
+// Can be negated
+expect($paymentOptions).to.have.elements.not.present;
+```
+
+**Deprecated** `elementsPresent`, `elementsNotPresent`:
 
 ```javascript
 // Asserts that there exists such element on page
@@ -42,7 +67,7 @@ assert.elementsNotPresent($emailForm)
 expect($emailForm).to.not.have.elementsPresent()
 ```
 
-`elementsEqual`, `elementsNotEqual`:
+**Deprecated** `elementsEqual`, `elementsNotEqual`:
 
 ```javascript
 // Asserts that there are exactly 3 of such elements
@@ -73,8 +98,3 @@ Works with a collection of things.
 assert.hasItems(lists)
 expect(lists).to.not.be.empty
 ```
-
-
-## Future Improvements
-
-In the future, if we decide to switch to writing our tests in the `expect` style, I feel it's better if we implement better `expect` methods than what we have now. I wrote some todo in the code to show a sample of what that might look like.
