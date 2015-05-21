@@ -11,8 +11,6 @@ define(function (require) {
     };
 
     // TODO: implement better 'expect' style
-    // expect(foo).to.have.elements.present
-    // expect(foo).to.not.have.elements.present
     // expect(foo).to.have.elements.with.length
     // expect(foo).to.have.elements.not.with.length
     // expect(foo).to.have.properties
