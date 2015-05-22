@@ -7,7 +7,7 @@ https://www.npmjs.com/package/mobify-chai-assertions
 
 ## How To Use the Plugin
 
-To use the plugin is simply calling Chai's `use()` function:
+To use the plugin, simply call Chai's `use()` function:
 
 ```javascript
 var chai = require('node_modules/chai/chai');
@@ -18,15 +18,15 @@ chai.use(customAssertions);
 
 ## New Assertion Methods
 
-The plugin extends Chai by adding the following methods. Feel free to use either the `assert` or `expect` styles.
+The plugin extends Chai by adding the following methods. Feel free to use either the `assert` or `expect` styles. They work with any of the chains listed in the [Chai API documentation](http://chaijs.com/api/bdd/).
 
 (Note: since Chai's API supports only the `expect` style, we implemented these methods for the `expect` style first and then the `assert` style as a wrapper)
 
 ### Elements
 
-All of these commands can take an optional `msg` parameter to output a custom error message on test failure. 
+All of these assertions can take an optional `msg` parameter to output a custom error message on test failure. 
 
-[] syntax denotes an optional parameter. 
+[ ] syntax denotes an optional parameter. 
 
 `elements([msg])`
 
@@ -52,7 +52,7 @@ expect($paymentOptions).to.be.present;
 var items = [1, 2, 3];
 expect(items).to.be.present;
 expect(items).to.be.present(3);
-expect(items).to.be.present(3, 'my custom failure message');
+expect(items).to.be.present(4, 'my custom failure message');
 
 // Can be used in a chain:
 // Zepto/jQuery object has length at least 1
@@ -68,14 +68,15 @@ expect($paymentOptions).to.have.elements.not.present;
 ```javascript
 // Asserts that it has a specified length
 var items = [1, 2, 3];
-expect(items).to.have.count(3, 'my custom failure message');
+expect(items).to.have.count(3);
+expect(items).to.have.count(5, 'my custom failure message');
 
 // Asserts that a jQuery/Zepto object has a specified length
 var $images = $('img');
 expect($images).to.have.elements.count(24);
 ```
 
-**Deprecated** `elementsPresent`, `elementsNotPresent`:
+**Deprecated** `elementsPresent`, `elementsNotPresent` use `elements.present` and `elements.not.present` instead:
 
 ```javascript
 // Asserts that there exists such element on page
@@ -91,7 +92,7 @@ assert.elementsNotPresent($emailForm)
 expect($emailForm).to.not.have.elementsPresent()
 ```
 
-**Deprecated** `elementsEqual`, `elementsNotEqual`:
+**Deprecated** `elementsEqual`, `elementsNotEqual` use `elements.count` instead:
 
 ```javascript
 // Asserts that there are exactly 3 of such elements
@@ -127,7 +128,7 @@ expect(lists).to.have.items;
 expect(lists).to.have.items('my custom failure message');
 ```
 
-**Deprecated** `hasItems`
+**Deprecated** `hasItems` use `have.items` instead:
 
 ```javascript
 // Asserts that this collection (e.g. an array) has at least 1 item in it
