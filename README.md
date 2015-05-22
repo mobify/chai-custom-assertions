@@ -24,16 +24,24 @@ The plugin extends Chai by adding the following methods. Feel free to use either
 
 ### Elements
 
-`elements`
+All of these commands can take an optional `msg` parameter to output a custom error message on test failure. 
+
+[] syntax denotes an optional parameter. 
+
+`elements([msg])`
 
 ```javascript
 // Asserts that it is a Zepto/jQuery element.
 expect($paymentOptions).to.be.elements;
 
+// Takes an optional error message that is displayed on failure.
+// Default error message is "Must be a Zepto/jQuery object"
+expect($paymentOptions).to.be.elements('failure: it is not a Zepto/jQuery object');
+
 //Can be chained with .present and .count (see below)
 ```
 
-`present`
+`present([num], [msg])`
 
 ```javascript
 // Asserts that the length is at least (>=) than num.
@@ -44,6 +52,7 @@ expect($paymentOptions).to.be.present;
 var items = [1, 2, 3];
 expect(items).to.be.present;
 expect(items).to.be.present(3);
+expect(items).to.be.present(3, 'my custom failure message');
 
 // Can be used in a chain:
 // Zepto/jQuery object has length at least 1
@@ -54,12 +63,12 @@ expect($paymentOptions).to.have.elements.present;
 expect($paymentOptions).to.have.elements.not.present;
 ```
 
-`count`
+`count(num, [msg])`
 
 ```javascript
 // Asserts that it has a specified length
 var items = [1, 2, 3];
-expect(items).to.have.count(3);
+expect(items).to.have.count(3, 'my custom failure message');
 
 // Asserts that a jQuery/Zepto object has a specified length
 var $images = $('img');
@@ -98,6 +107,8 @@ expect($images).to.not.have.elementsEqual(3)
 
 Works with javascript objects.
 
+`properties`
+
 ```javascript
 // Asserts that this object has the keys 'apple' and 'google'
 assert.properties(apps, 'apple', 'google')
@@ -108,11 +119,12 @@ expect(apps).to.have.properties('apple', 'google')
 
 Works with a collection of things.
 
-`items`
+`items([msg])`
 
 ```javascript
 // Asserts that this collection (e.g. an array) has at least 1 item in it
 expect(lists).to.have.items;
+expect(lists).to.have.items('my custom failure message');
 ```
 
 **Deprecated** `hasItems`
