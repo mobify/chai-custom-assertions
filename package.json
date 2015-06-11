@@ -1,6 +1,6 @@
 {
   "name": "mobify-chai-assertions",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Mobify's custom assertions for Chai",
   "main": "assertions.js",
   "scripts": {
