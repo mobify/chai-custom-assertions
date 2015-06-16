@@ -28,7 +28,7 @@ All of these assertions can take an optional `msg` parameter to output a custom 
 
 [ ] syntax denotes an optional parameter. 
 
-`elements([msg]) / elements([msg])`
+`element([msg]) / elements([msg])`
 
 ```javascript
 // Asserts that it is a Zepto/jQuery element.
