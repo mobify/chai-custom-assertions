@@ -28,11 +28,11 @@ All of these assertions can take an optional `msg` parameter to output a custom 
 
 [ ] syntax denotes an optional parameter. 
 
-`elements([msg])`
+`element([msg]) / elements([msg])`
 
 ```javascript
 // Asserts that it is a Zepto/jQuery element.
-expect($paymentOptions).to.be.elements;
+expect($paymentOptions).to.be.an.element;
 
 // Takes an optional error message that is displayed on failure.
 // Default error message is "Must be a Zepto/jQuery object"
